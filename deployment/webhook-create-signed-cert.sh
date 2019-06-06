@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# original source of file (istio dev):
+# https://github.com/morvencao/kube-mutating-webhook-tutorial/blob/master/deployment/webhook-create-signed-cert.sh
 set -e
 
 usage() {
@@ -45,10 +46,6 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
-
-[ -z ${service} ] && service=admission-webhook-example-svc
-[ -z ${secret} ] && secret=admission-webhook-example-certs
-[ -z ${namespace} ] && namespace=default
 
 if [ ! -x "$(command -v openssl)" ]; then
     echo "openssl not found"
